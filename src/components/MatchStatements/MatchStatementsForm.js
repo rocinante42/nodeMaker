@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, Input, Cascader } from 'antd';
+import MathRenderer from './../MathRenderer';
 
 class TitleQuestionCard extends Component {
+
+  constructor(props) {
+    super();
+    this.state = {
+      titleContent: "",
+      index: "",
+      questionContent: ""
+    }
+  }
 
   changeValue = (event) => {
     if (event.target.dataset.type === "title") {
       this.props.changeTitle(event.target.value, event.target.dataset.index);
+      this.setState({titleContent: event.target.value})
     }
     else if (event.target.dataset.type === "question") {
       this.props.changeQuestion(event.target.value, event.target.dataset.index);
+      this.setState({questionContent: event.target.value})
     }
     else
       console.log("ERROR, NO CARD TYPE ADDED");
@@ -64,6 +76,12 @@ class TitleQuestionCard extends Component {
                 <Input data-type="title" data-index={this.props.index} placeholder="Title here" onChange={this.changeValue} />
               </Col>
             </Row>
+            <br />
+          <Row>
+            <Col span={24} >
+              <MathRenderer type={"math"} content={this.state.titleContent} />
+            </Col>
+          </Row>
           </Card>
         </Col>
         <Col span={12}>
@@ -89,6 +107,12 @@ class TitleQuestionCard extends Component {
                 <Input data-type="question" data-index={this.props.index} placeholder="Question here" onChange={this.changeValue} />
               </Col>
             </Row>
+            <br />
+          <Row>
+            <Col span={24} >
+              <MathRenderer type={"math"} content={this.state.questionContent} />
+            </Col>
+          </Row>
           </Card>
         </Col>
       </Row>
