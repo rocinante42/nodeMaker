@@ -23,9 +23,8 @@ class JsonRenderer extends Component {
       <div style={{ textAlign: "left", overflowY: "scroll" }}>
         <div style={{ textAlign: "right" }}>
           <br />
-          <Button icon="copy" onClick={this.copyClipboard}>Copy</Button>
         </div>
-        <SyntaxHighlighter CodeTag={"code1"} showLineNumbers language='javascript' style={vs}>{_json}</SyntaxHighlighter>
+        <SyntaxHighlighter CodeTag={"code1"}  language='javascript' style={vs}>{_json}</SyntaxHighlighter>
       </div>
     )
   }
