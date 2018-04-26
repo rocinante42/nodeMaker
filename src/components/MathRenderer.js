@@ -23,7 +23,6 @@ class MathRenderer extends Component {
         </Divider>
         <div>
           {(this.props.type === "math") ? <MathJax math={"`" + this.props.content + "`"} /> : <p>{this.props.content}</p>}
-
         </div>
       </div >
     )

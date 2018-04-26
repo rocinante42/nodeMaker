@@ -8,6 +8,8 @@ class TitleQuestionCard extends Component {
     super();
     this.state = {
       titleContent: "",
+      titleType: "text",
+      questionType: "text",
       index: "",
       questionContent: ""
     }
@@ -28,10 +30,12 @@ class TitleQuestionCard extends Component {
 
   changeTitleType = (value, options) => {
     this.props.changeTitleType(value[0], options[0]["index"])
+    this.setState({titleType: value[0]})
   }
 
   changeQuestionType = (value, options) => {
     this.props.changeQuestionType(value[0], options[0]["index"])
+    this.setState({questionType: value[0]})
   }
 
   render() {
@@ -79,7 +83,7 @@ class TitleQuestionCard extends Component {
             <br />
           <Row>
             <Col span={24} >
-              <MathRenderer type={"math"} content={this.state.titleContent} />
+              <MathRenderer type={this.state.titleType} content={this.state.titleContent} />
             </Col>
           </Row>
           </Card>
@@ -110,7 +114,7 @@ class TitleQuestionCard extends Component {
             <br />
           <Row>
             <Col span={24} >
-              <MathRenderer type={"math"} content={this.state.questionContent} />
+              <MathRenderer type={this.state.questionType} content={this.state.questionContent} />
             </Col>
           </Row>
           </Card>
