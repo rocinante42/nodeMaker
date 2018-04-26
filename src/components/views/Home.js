@@ -18,9 +18,6 @@ class Home extends Component {
         </Link>
         <br />
         <br />
-        <Link to="/multiple_select">
-          <Button type="default">Multiple Select</Button>
-        </Link>
       </div>
     )
   }
