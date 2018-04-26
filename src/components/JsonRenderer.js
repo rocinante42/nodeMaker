@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import { Button } from 'antd'
+import { Button, message } from 'antd'
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { vs } from 'react-syntax-highlighter/styles/prism';
 import PropTypes from 'prop-types';
 
-const CustomCode = (props) => {
-  return (
-    <div>{props.children}</div>
-  )
-}
-
-
 class JsonRenderer extends Component {
+
+  copyMessage = () => {
+    message.success('JSON copied to clipboard')
+  }
+
   copyClipboard = (event) => {
-    var _select = document.getElementsByTagName("code1");
-    _select.select();
+    const el = document.createElement('textarea');
+    el.value = JSON.stringify(this.props.json, null, 2);
+    document.body.appendChild(el);
+    el.select();
     document.execCommand('copy');
+    document.body.removeChild(el);
+    this.copyMessage();
   }
   render() {
     let _json = JSON.stringify(this.props.json, null, 2);
@@ -23,8 +25,9 @@ class JsonRenderer extends Component {
       <div style={{ textAlign: "left", overflowY: "scroll" }}>
         <div style={{ textAlign: "right" }}>
           <br />
+            <Button onClick={this.copyClipboard} icon="copy">Copy</Button>
         </div>
-        <SyntaxHighlighter CodeTag={"code1"}  language='javascript' style={vs}>{_json}</SyntaxHighlighter>
+        <SyntaxHighlighter CodeTag={"code"}  language='javascript' style={vs}>{_json}</SyntaxHighlighter>
       </div>
     )
   }
