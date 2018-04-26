@@ -92,6 +92,7 @@ class TrueFalse extends Component {
           </Col>
           <Col span={12}><JsonRenderer json={json} /></Col>
         </Row>
+        <br />
       </div>
     )
   }

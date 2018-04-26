@@ -67,7 +67,7 @@ class MatchStatemets extends Component {
       "y": i - 1,
       "h": 1,
       "w": 1,
-      "static": true,
+      "static": false,
       "jaxDisplay": {
         "jaxType": "ascii",
         "jaxContent": [
@@ -159,6 +159,7 @@ class MatchStatemets extends Component {
           </Col>
           <Col span={8}><JsonRenderer json={json} /></Col>
         </Row>
+        <br />
       </div>
     );
   }
