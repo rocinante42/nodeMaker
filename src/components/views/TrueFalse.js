@@ -14,6 +14,12 @@ class TrueFalse extends Component {
     }
   }
 
+  example = {"display": "JaxGrid",
+  "grid_columns": 2,
+  "jaxAnswerType": "layout",
+  "input_type": "optionOk",
+  "jaxLayout": []}
+
   constructor(props) {
     super();
     this.state = {
@@ -26,12 +32,23 @@ class TrueFalse extends Component {
   setupBuilder = (i, type = "text", content = "***content here***") => {
     let obj = {
       ["setup" + i]: {
-        "jaxContent": [
-          {
-            "type": type,
-            "content": content
+        "display": "JaxGrid",
+        "grid_columns": 1,
+        "jaxLayout": [{
+          "i": 0,
+          "x": 0,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "jaxDisplay": {
+            "jaxContent": [
+              {
+                "type": type,
+                "content": content
+              }
+            ]
           }
-        ]
+        }]
       }
     }
     return obj;
@@ -63,13 +80,13 @@ class TrueFalse extends Component {
   //Change the type of the content from the question
   changeQuestionType = (type, i) => {
     let _json = { ...this.state.json };
-    _json[this.state.nodeId][("setup" + i)]["jaxContent"][0]["type"] = type;
+    _json[this.state.nodeId][("setup" + i)]["jaxLayout"][0]["jaxDisplay"]["jaxContent"][0]["type"] = type;
     this.setState({ json: _json });
   }
 
   changeQuestionContent = (content, i) => {
     let _json = { ...this.state.json };
-    _json[this.state.nodeId][("setup" + i)]["jaxContent"][0]["content"] = content;
+    _json[this.state.nodeId][("setup" + i)]["jaxLayout"][0]["jaxDisplay"]["jaxContent"][0]["content"] = content;
     this.setState({ json: _json });
   }
   render() {
