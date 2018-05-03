@@ -109,6 +109,14 @@ class MatchStatemets extends Component {
     this.setState({ json: _json });
   }
 
+  addQuestionLine = () => {
+
+  }
+
+  addTitleLine = () => {
+    
+  }
+
   changeQuestion = (v, i) => {
     let _json = this.state.json;
     let _questions = this.state.questions;

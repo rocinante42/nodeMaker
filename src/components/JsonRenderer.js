@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, message } from 'antd'
+import { Button, message, Row, Col, Card } from 'antd'
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { vs } from 'react-syntax-highlighter/styles/prism';
 import PropTypes from 'prop-types';
@@ -22,13 +22,11 @@ class JsonRenderer extends Component {
   render() {
     let _json = JSON.stringify(this.props.json, null, 2);
     return (
-      <div style={{ textAlign: "left", overflowY: "scroll" }}>
-        <div style={{ textAlign: "right" }}>
-          <br />
-            <Button onClick={this.copyClipboard} icon="copy">Copy</Button>
-        </div>
-        <SyntaxHighlighter CodeTag={"code"}  language='javascript' style={vs}>{_json}</SyntaxHighlighter>
-      </div>
+      <Card title={<Button onClick={this.copyClipboard} icon="copy">Copy</Button>}>
+        <Row>
+          <SyntaxHighlighter CodeTag={"code"}  language='javascript' style={vs}>{_json}</SyntaxHighlighter>
+        </Row>
+      </Card>
     )
   }
 }

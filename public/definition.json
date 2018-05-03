@@ -1,0 +1,185 @@
+{
+  "5accec7e6ff4260819ee59a4": {
+    "setup": {
+      "display": "JaxGrid",
+      "grid_columns": 2,
+      "disallow_click": false,
+      "jaxLayout": [
+        {
+          "i": "quest0",
+          "x": 0,
+          "y": 0,
+          "h": 1,
+          "w": 1,
+          "static": false,
+          "displayType": "card",
+          "front": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "8=3+5"
+              }
+            ]
+          },
+          "back": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "text{The statement is: } 8=3+5"
+              },
+              {
+                "type": "text",
+                "content": "It says that 8 is equal to 3 + 5"
+              },
+              {
+                "type": "text",
+                "content": "This is true!"
+              },
+              {
+                "type": "text",
+                "content": "The left hand side of the equal sign is 8 and the right handside is 3+5, which is also 8."
+              },
+              {
+                "type": "text",
+                "content": "Since both sides are equal, the statement is true"
+              }
+            ]
+          }
+        },
+        {
+          "i": "quest1",
+          "x": 1,
+          "y": 0,
+          "h": 1,
+          "w": 1,
+          "static": false,
+          "displayType": "card",
+          "front": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "4+7 ne 11"
+              }
+            ]
+          },
+          "back": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "text{The statement is: }4+7 ne 11"
+              },
+              {
+                "type": "text",
+                "content": "It says that 4 + 7 is not equal to 11"
+              },
+              {
+                "type": "text",
+                "content": "This is FALSE"
+              },
+              {
+                "type": "text",
+                "content": "The left hand side is 4+7 which is 11 and the right hand side is also 11.  "
+              },
+              {
+                "type": "text",
+                "content": "Both sides are NOT different, they are equal"
+              }
+            ]
+          }
+        },
+        {
+          "i": "quest2",
+          "x": 0,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "static": false,
+          "displayType": "card",
+          "front": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "3+6 = 8"
+              }
+            ]
+          },
+          "back": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "text{The statement is: }3+6 = 8"
+              },
+              {
+                "type": "text",
+                "content": "It says that 3 + 6 is equal to 8"
+              },
+              {
+                "type": "text",
+                "content": "This is FALSE"
+              },
+              {
+                "type": "text",
+                "content": "The left hand side is 3 + 6, which is 9.  The right hand side is 8.  They are not equal"
+              }
+            ]
+          }
+        },
+        {
+          "i": "quest3",
+          "x": 1,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "static": false,
+          "displayType": "card",
+          "front": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "3+6 ne 8"
+              }
+            ]
+          },
+          "back": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "text{The statement is: }3+6 ne 8"
+              },
+              {
+                "type": "text",
+                "content": "It says that 3 + 6 is not equal to 8"
+              },
+              {
+                "type": "text",
+                "content": "This is TRUE"
+              },
+              {
+                "type": "text",
+                "content": "The left hand side is 3 + 6, which is 9.  The right hand side is 8.  They are not equal"
+              }
+            ]
+          }
+        }
+      ],
+      "input_type": "optionOk"
+    },
+    "comment1": {
+      "value": "We will look at the relations `equals to' and `not equal to' "
+    },
+    "comment2": {
+      "value": "Look at the cards, try to determine if they are true or false"
+    },
+    "comment3": {
+      "value": "Flip the cards to check if you were right.  After checking all cards, click DONE to continue"
+    }
+  }
+}

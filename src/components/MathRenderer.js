@@ -3,15 +3,32 @@ import { Divider } from 'antd';
 import PropTypes from 'prop-types';
 import MathJax from 'react-mathjax-preview';
 
+const PlainText = (props) => {
+  return(
+    <div>
+      <p>{props.content}</p>
+    </div>
+  )
+}
+
+const MapContent = (types, content) => {
+  var _content = []
+  content.map((v, i)=>{
+    _content.push( (types[i]=="math") ? <MathJax key={i} math={"`" + v + "`"}/> : <PlainText key={i} content={v} />  )
+  })
+  return _content;
+}
+
 class MathRenderer extends Component {
   render() {
+    //const {clientWidth, clientHeight} = this.containerNode;
     return (
-      <div>
+      <div ref={input => {this.myRenderer = input}}>
         <Divider style={{ fontSize: "12px" }}>
-          Content Preview
+          {this.props.title || 'Preview'}
         </Divider>
         <div>
-          {(this.props.type === "math") ? <MathJax math={"`" + this.props.content + "`"} /> : <p>{this.props.content}</p>}
+          {MapContent(this.props.types, this.props.contents)}
         </div>
       </div >
     )
@@ -19,8 +36,9 @@ class MathRenderer extends Component {
 }
 
 MathRenderer.propTypes = {
-  type: PropTypes.string,
-  content: PropTypes.string.isRequired
+  types: PropTypes.array,
+  contents: PropTypes.array.isRequired,
+  title: PropTypes.string
 }
 
 
