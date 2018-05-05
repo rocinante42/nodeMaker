@@ -12,12 +12,21 @@ const calculatePosition = (id, cols) => {
   }
 }
 
+const mapContent = (arr, kind) => {
+  let response = [];
+  arr.map((v, i)=>{
+    response.push(v[kind]);
+  });
+  return response;
+}
+
 // React stateless component that renders a input number for changing the number of columns
 const NumberCols =  (props) => {
   return(
     <div>
         <p>Number of columns</p>
         <InputNumber min={1} max={3} defaultValue={1} onChange={props.changeCols} />
+        <Button onClick={props.setColumns}>Set</Button>
     </div>
   )
 }
@@ -41,7 +50,8 @@ class DefinitionPage extends Component {
       nodeId: "5accec7e6ff4260819ee59a4",
       json: this.jsonTemplate,
       cols: 1,
-      elements: 0
+      elements: 0,
+      cols_flag: false
     }
   }
   /********* BUILDERS HERE **************/
@@ -70,6 +80,10 @@ class DefinitionPage extends Component {
     return obj;
   }
   /*********CHANGE METHODS HERE**********/
+
+  setColumns = () => {
+    this.setState({cols_flag: true});
+  }
 
   reformatPositions = (arr, cols) => {
     let arr2 = [...arr]
@@ -111,13 +125,27 @@ class DefinitionPage extends Component {
     id++;
     this.setState({json: json, elements: id});
   }
+
+  refreshCardState = (id) => {
+    let json = {...this.state.json}
+    let obj = {...json[this.state.nodeId]["setup"]["jaxLayout"][id]};
+    let response = {
+     contents : mapContent(obj["front"]["jaxContent"], "content"),
+     types : mapContent(obj["front"]["jaxContent"], "type"),
+     feedback_contents : mapContent(obj["back"]["jaxContent"], "content"),
+     feedback_types :  mapContent(obj["back"]["jaxContent"], "type"),
+     elements : mapContent(obj["front"]["jaxContent"], "content").length,
+     feedback_elements : mapContent(obj["back"]["jaxContent"], "content").length
+    }
+    return response;
+  }
 /************RENDER METHOD******************/
   render(){
     const json = this.state.json;
     return(
       <div style={{ paddingLeft: "20px", paddingRight: "20px" }}>
         <Row>
-          <Col span={18}>
+          <Col span={12}>
             <Row>
               <div>
                 <CardRenderer 
@@ -127,7 +155,7 @@ class DefinitionPage extends Component {
                 hasFlag={false}
                 hasFeedback={false}
                 >
-                  <NumberCols changeCols={this.changeCols}/>
+                  {this.state.cols_flag ? null :<NumberCols cols_flag={this.state.cols_flag} setColumns={this.setColumns} changeCols={this.changeCols}/>}
                 <br />
                 </CardRenderer>
               </div>
@@ -139,14 +167,15 @@ class DefinitionPage extends Component {
                 input_size={100/this.state.cols}
                 changeContent={this.changeQuestionContent}
                 changeContentFeedback={this.changeContentFeedback}
+                refreshState={this.refreshCardState}
               />
             </Row>
             <Row>
               <br />
-              <Button onClick={this.addElement} type="default">Add Element</Button>
+              <Button disabled={!this.state.cols_flag} onClick={this.addElement} type="default">Add Element</Button>
             </Row>
           </Col>
-          <Col span={6}><JsonRenderer json={json} /></Col>
+          <Col span={12}><JsonRenderer json={json} /></Col>
         </Row>
         <br />
       </div>

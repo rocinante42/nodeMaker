@@ -37,7 +37,9 @@ class DefinitionForm extends Component {
                                     index={cont}
                                     card_title={"quest"} 
                                     changeContent={this.props.changeContent}
-                                    changeContentFeedback={this.props.changeContentFeedback}          
+                                    changeContentFeedback={this.props.changeContentFeedback}
+                                    refreshState={this.props.refreshState}  
+                                            
                                   />, cols))
         cont2++;
         cont++
@@ -46,6 +48,7 @@ class DefinitionForm extends Component {
     }
     return arr;
   }
+
   render(){
     return(
       <div>
