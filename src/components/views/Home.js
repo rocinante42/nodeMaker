@@ -31,6 +31,11 @@ class Home extends Component {
         </Link>
         <br />
         <br />
+        <Link to="/true_false_2">
+          <Button type="default">True False 2 questions</Button>
+        </Link>
+        <br />
+        <br />
         <Link to="/test_component">
           <Button type="default">Test Card</Button>
         </Link>

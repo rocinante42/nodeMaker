@@ -100,6 +100,7 @@ class CardRenderer extends Component {
     return arr
   }
   changeFlag = () => {
+    this.props.flagFunction(this.props.index, !this.state.flag)
     this.setState({flag: !this.state.flag});
     // this.props.hasFlag(this.state.flag);
   }
@@ -200,7 +201,8 @@ CardRenderer.defaultProps = {
   input_size: 100,
   index: 0,
   refreshState: function(){},
-  refresh: false
+  refresh: false,
+  flagFunction: function(){}
 }
 
 export default CardRenderer;
