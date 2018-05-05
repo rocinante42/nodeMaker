@@ -1,0 +1,58 @@
+{
+  "5ab6996fc405a2a419bebe8d": {
+    "questions": {
+      "random": [
+        [
+          "setup1",
+          "true"
+        ],
+        [
+          "setup2",
+          "false"
+        ]
+      ]
+    },
+    "setup1": {
+      "display": "JaxGrid",
+      "grid_columns": 1,
+      "jaxLayout": [
+        {
+          "i": 0,
+          "x": 0,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "jaxDisplay": {
+            "jaxContent": [
+              {
+                "type": "text",
+                "content": "Hola, this is true"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "setup2": {
+      "display": "JaxGrid",
+      "grid_columns": 1,
+      "jaxLayout": [
+        {
+          "i": 0,
+          "x": 0,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "jaxDisplay": {
+            "jaxContent": [
+              {
+                "type": "text",
+                "content": "Adios, this is false"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
