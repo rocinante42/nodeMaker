@@ -145,7 +145,7 @@ class DefinitionPage extends Component {
     return(
       <div style={{ paddingLeft: "20px", paddingRight: "20px" }}>
         <Row>
-          <Col span={12}>
+          <Col span={21}>
             <Row>
               <div>
                 <CardRenderer 
@@ -175,7 +175,7 @@ class DefinitionPage extends Component {
               <Button disabled={!this.state.cols_flag} onClick={this.addElement} type="default">Add Element</Button>
             </Row>
           </Col>
-          <Col span={12}><JsonRenderer json={json} /></Col>
+          <Col span={3}><JsonRenderer json={json} /></Col>
         </Row>
         <br />
       </div>
