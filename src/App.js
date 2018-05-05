@@ -10,6 +10,7 @@ import TrueFalse2Page from './components/views/TrueFalse2'
 import MultipleSelectPage from './components/views/MultipleSelectPage';
 import Test from './components/views/Test';
 import DefinitionPage from './components/views/DefinitionPage';
+import MultipleChoice from './components/views/MultipleChoice'
 import './App.css';
 
 const {Header, Content, Footer} = Layout;
@@ -50,6 +51,7 @@ class App extends Component {
               <Route path="/true_false" component={TrueFalsePage} />
               <Route path="/true_false_2" component={TrueFalse2Page} />
               <Route path="/multiple_select" component={MultipleSelectPage} />
+              <Route path="/multiple_choice" component={MultipleChoice} />
             </div>
           </div>
         </Content>

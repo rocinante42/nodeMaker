@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Row, Col, Card, Input, Cascader, Switch } from 'antd';
 import CardRenderer from './../CardRenderer';
 
-class TrueFalse2 extends Component {
+class MultipleSelectRenderer extends Component {
 
   colCreator = (obj, cols) => {
     let col=24/cols;
@@ -21,12 +21,13 @@ class TrueFalse2 extends Component {
       while (cont != elements && cont2 < cols){
         rows.push(this.colCreator(<CardRenderer 
                                     hasPreview
-                                    hasFlag
+                                    hasInputOption
                                     index={cont}
                                     card_title={"Setup"} 
                                     changeContent={this.props.changeContent}
                                     refreshState={this.props.refreshState} 
-                                    flagFunction={this.props.changeAnswer} 
+                                    changeAnswer={this.props.changeAnswer} 
+                                    inputOption={this.props.inputOption}
                                             
                                   />, cols))
         cont2++;
@@ -48,16 +49,16 @@ class TrueFalse2 extends Component {
 }
 
 
-TrueFalse2.propTypes = {
+MultipleSelectRenderer.propTypes = {
   elements: PropTypes.number.isRequired,
   columns: PropTypes.number.isRequired
 }
 
-TrueFalse2.defaultProps = {
+MultipleSelectRenderer.defaultProps = {
   elements: 0,
   columns: 1,
   changeContent: function(){},
   refreshState: function(){}
 }
 
-export default TrueFalse2;
+export default MultipleSelectRenderer;

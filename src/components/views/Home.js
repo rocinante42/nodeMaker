@@ -41,6 +41,11 @@ class Home extends Component {
         </Link>
         <br />
         <br />
+        <Link to="/multiple_choice">
+          <Button type="default">Multiple Choice</Button>
+        </Link>
+        <br />
+        <br />
         <Link to="/test_component">
           <Button type="default">Test Card</Button>
         </Link>

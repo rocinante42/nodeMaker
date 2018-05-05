@@ -16,6 +16,33 @@ import MathRenderer from './MathRenderer';
 const InputGroup = Input.Group;
 const Option = Select.Option;
 
+
+const InputOption = (props) => {
+  return(
+    <Row>
+      <Col style={{textAlign: "right"}} span={12}>
+        Distractors: 
+      </Col>
+      <Col span={12}>
+        <Input style={{maxWidth: 300}} onChange={props.inputOption} type="text" />
+      </Col>
+    </Row>
+  )
+}
+
+const Answer = (props) => {
+  return(
+    <Row>
+      <Col style={{textAlign: "right"}} span={12}>
+        Answer: 
+      </Col>
+      <Col span={12}>
+        <Input style={{maxWidth: 100}} onChange={props.changeAnswer} type="text" />
+      </Col>
+    </Row>  
+  )
+}
+
 class ContentForm extends Component { 
   changeContent = (event) => {
     this.props.changeCardContent(this.props.index, event.target.value, this.props.type);
@@ -104,6 +131,9 @@ class CardRenderer extends Component {
     this.setState({flag: !this.state.flag});
     // this.props.hasFlag(this.state.flag);
   }
+  changeAnswer = (event) => {
+    this.props.changeAnswer(this.props.index, event.target.value);
+  }
   addLine = () => {
     let types = [...this.state.types];
     types.push("text");
@@ -142,6 +172,10 @@ class CardRenderer extends Component {
       this.props.changeContentFeedback(this.props.index, this.finalType(types, this.state.feedback_contents))
     }    
   }
+  inputOption = (event) => {
+    let arr = event.target.value.split(",");
+    this.props.inputOption(this.props.index, arr);
+  }
   refreshState = () => {
     const obj = this.props.refreshState(this.props.index)
     this.setState({...this.state, ...obj})
@@ -165,6 +199,8 @@ class CardRenderer extends Component {
             }
           </Row>
           {this.props.hasFlag ? <TrueFalse changeFlag={this.changeFlag} flag={this.state.flag} /> : null}
+          {this.props.hasInputOption ? <InputOption inputOption={this.inputOption} input_size={this.props.input_size} /> : null}
+          {this.props.hasInputOption ? <Answer changeAnswer={this.changeAnswer}/> : null}
           {this.props.hasPreview ? <Row>
             <Divider />
             <Col span={this.props.hasFeedback ? 12 : 24}>
@@ -198,11 +234,14 @@ CardRenderer.defaultProps = {
   hasFlag: false,
   hasFeedback: false,
   hasPreview: false,
+  hasInputOption: false,
   input_size: 100,
   index: 0,
   refreshState: function(){},
   refresh: false,
-  flagFunction: function(){}
+  flagFunction: function(){},
+  inputOption: function(){},
+  changeAnswer: function(){}
 }
 
 export default CardRenderer;
