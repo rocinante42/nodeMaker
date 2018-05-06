@@ -31,6 +31,11 @@ class Home extends Component {
         </Link>
         <br />
         <br />
+        <Link to="/multiple_select">
+          <Button type="default">Multiple Select</Button>
+        </Link>
+        <br />
+        <br />
         <Link to="/true_false">
           <Button type="default">True False</Button>
         </Link>

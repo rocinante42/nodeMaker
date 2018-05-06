@@ -79,7 +79,7 @@ const TrueFalse = (props) => {
       <br />
       <Row>
         {`Content is ${props.flag}: `}
-        <Switch defaultChecked onChange={props.changeFlag}/>
+        <Switch defaultChecked={props.flag} checked={props.flag} onChange={props.changeFlag}/>
       </Row>
     </div>
   )
@@ -179,6 +179,7 @@ class CardRenderer extends Component {
   refreshState = () => {
     const obj = this.props.refreshState(this.props.index)
     this.setState({...this.state, ...obj})
+    console.log(obj);
   }
   render() {
     const title = this.props.index != "" ? this.props.card_title+(this.props.index+1) : this.props.card_title;

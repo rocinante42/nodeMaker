@@ -1,0 +1,190 @@
+{
+  "5abe6437c405a2a419bebe8f": {
+    "setup": {
+      "display": "JaxGrid",
+      "grid_columns": 3,
+      "shuffle": {
+        "type": "row",
+        "indices": [
+          0,
+          1,
+          2
+        ]
+      },
+      "removeClick": false,
+      "jaxLayout": [
+        {
+          "i": "quest0",
+          "x": 0,
+          "y": 0,
+          "h": 1,
+          "w": 1,
+          "static": true,
+          "jaxDisplay": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "text",
+                "content": "quest0:true"
+              },
+              {
+                "type": "math",
+                "content": "6=2 times 3"
+              },
+              {
+                "type": "text",
+                "content": "It reads: 6 equals 2 times 3"
+              },
+              {
+                "type": "text",
+                "content": "It is TRUE. Both sides of the equal sign are equal to 6"
+              }
+            ]
+          }
+        },
+        {
+          "i": "quest1",
+          "x": 1,
+          "y": 0,
+          "h": 1,
+          "w": 1,
+          "static": true,
+          "jaxDisplay": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "text",
+                "content": "quest1:true"
+              },
+              {
+                "type": "math",
+                "content": "7 ne 2 times 3"
+              },
+              {
+                "type": "text",
+                "content": "It reads: 7 is not equal to 2 times 3"
+              },
+              {
+                "type": "text",
+                "content": "It is TRUE, 2 times 3 is 6 and 7 is not equal to 6"
+              }
+            ]
+          }
+        },
+        {
+          "i": "quest2",
+          "x": 2,
+          "y": 0,
+          "h": 1,
+          "w": 1,
+          "static": true,
+          "jaxDisplay": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "text",
+                "content": "quest2: false"
+              },
+              {
+                "type": "math",
+                "content": "16 ne 4 times 4"
+              },
+              {
+                "type": "text",
+                "content": "It reads: 16 is not equal to 4 times 4"
+              },
+              {
+                "type": "text",
+                "content": "It is FALSE.  16 IS equal to 4 times 4"
+              }
+            ]
+          }
+        },
+        {
+          "i": "quest3",
+          "x": 0,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "static": true,
+          "jaxDisplay": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "text",
+                "content": "quest3:false"
+              },
+              {
+                "type": "text",
+                "content": "First column, Second row"
+              }
+            ]
+          }
+        },
+        {
+          "i": "quest4",
+          "x": 1,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "static": true,
+          "jaxDisplay": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "text",
+                "content": "quest4:true"
+              },
+              {
+                "type": "math",
+                "content": "U = 1/(R_(si) + sum_(i=1)^n(s_n/lambda_n) + R_(se))"
+              },
+              {
+                "type": "text",
+                "content": "Second row"
+              }
+            ]
+          }
+        },
+        {
+          "i": "quest5",
+          "x": 2,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "static": true,
+          "jaxDisplay": {
+            "jaxType": "ascii",
+            "jaxContent": [
+              {
+                "type": "text",
+                "content": "quest5:true"
+              },
+              {
+                "type": "math",
+                "content": "7 geq 8"
+              },
+              {
+                "type": "math",
+                "content": "not (7 < 8)"
+              }
+            ]
+          }
+        }
+      ],
+      "input_type": "optionOk"
+    },
+    "answer": {
+      "random": [
+        {
+          "quest0": true,
+          "quest1": true,
+          "quest2": false,
+          "quest3": false,
+          "quest4": true,
+          "quest5": true
+        }
+      ]
+    }
+  }
+}

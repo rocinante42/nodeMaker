@@ -1,117 +1,73 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import { Row, Col, Card, Input, Cascader, Switch } from 'antd';
-import MathRenderer from './../MathRenderer';
+import CardRenderer from './../CardRenderer';
 
-class MultipleSelectCard extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      switch: true,
-      content: "",
-      type: "text"
-    }
-  }
-  onChangeSwitch = () => {
-    this.setState({ switch: !this.state.switch })
-    this.props.changeAnswer(this.state.switch, this.props.index)
-  }
-  changeQuestionType = (value) => {
-    this.props.changeQuestionType(value[0], this.props.index + 1);
-    this.setState({ type: value[0] });
-  }
-  changeQuestionContent = (event) => {
-    const content = event.target.value
-    this.props.changeQuestionContent(content, this.props.index + 1);
-    this.setState({ content: content });
-  }
-  render() {
-    let options = [
-      {
-        label: "Text",
-        value: "text",
-        index: this.props.index
-      },
-      {
-        label: "Math",
-        value: "math",
-        index: this.props.index
-      }
-    ]
-    let fontSize = "14px"
-    return (
-      <Col span={24}>
-        <Card title={"Quest" + (this.props.index + 1)}>
-          <Row>
-            <Col style={{ fontSize: fontSize }} span={5}>
-              Title Type:
-            </Col>
-            <Col span={19}>
-              <Cascader
-                onChange={this.changeQuestionType}
-                data-type="title"
-                default="text"
-                data-index={this.props.index}
-                placeholder="Please select"
-                options={options}
-              />
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col style={{ fontSize: fontSize }} span={5}>
-              Content:
-            </Col>
-            <Col span={19}>
-              <Input data-type="title" data-index={this.props.index} placeholder="Title here" onChange={this.changeQuestionContent} />
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col style={{ fontSize: fontSize }} span={5}>
-              {"answer is " + this.state.switch}:
-              </Col>
-            <Col span={19}>
-              <Switch defaultChecked onChange={this.onChangeSwitch} />
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col span={24} >
-              <MathRenderer type={this.state.type} content={this.state.content} />
-            </Col>
-          </Row>
-        </Card>
-      </Col>
-    )
+const calculatePosition = (id, cols) => {
+  return {
+    x: ((id + cols ) % cols),
+    y: Math.floor(id/cols)
   }
 }
 
-class MultipleSelect extends Component {
+class DefinitionForm extends Component {
 
-
-  RenderMultipleCard = (props) => {
-    let a = [];
-    for (var i = 0; i < props.elements; i++) {
-      a.push(<MultipleSelectCard
-        key={i}
-        index={i}
-        changeAnswer={props.changeAnswer}
-        changeQuestionType={props.changeQuestionType}
-        changeQuestionContent={props.changeQuestionContent}
-      />)
+  colCreator = (obj, cols) => {
+    let col=24;
+    if (cols==3) {
+      col=8;
+    } else if (cols==2){
+      col=12;
     }
-    return a;
+    return (
+      <Col span={col}>{obj}</Col>
+    )
   }
 
-  render() {
-    return (
+  mapElementsToCards = (elements, cols) => {
+    let arr = []
+    let cont = 0
+    while(cont != elements) {
+      let rows = []
+      let cont2 = 0
+      while (cont != elements && cont2 < cols){
+        rows.push(this.colCreator(<CardRenderer 
+                                    hasFeedback
+                                    hasPreview
+                                    hasFlag
+                                    index={cont}
+                                    card_title={"quest"} 
+                                    changeContent={this.props.changeContent}
+                                    changeContentFeedback={this.props.changeContentFeedback}
+                                    refreshState={this.props.refreshState}
+                                    flagFunction={this.props.changeAnswer}  
+                                            
+                                  />, cols))
+        cont2++;
+        cont++
+      }        
+      arr.push(<Row key={cont}>{rows}</Row>)
+    }
+    return arr;
+  }
+
+  render(){
+    return(
       <div>
-        {
-          this.RenderMultipleCard(this.props)
-        }
+        {this.mapElementsToCards(this.props.elements, this.props.columns)}
       </div>
     )
   }
 }
 
-export default MultipleSelect;
+DefinitionForm.propTypes = {
+  elements: PropTypes.number.isRequired,
+  columns: PropTypes.number.isRequired
+}
+
+DefinitionForm.defaultProps = {
+  elements: 0,
+  columns: 1
+}
+
+export default DefinitionForm;
