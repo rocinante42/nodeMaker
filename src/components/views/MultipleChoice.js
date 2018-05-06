@@ -50,8 +50,8 @@ class MultipleChoice extends Component {
         "jaxLayout": [
           {
             "i": i,
-            "x": i,
-            "y": 1,
+            "x": 0,
+            "y": 0,
             "h": 1,
             "w": 1,
             "jaxDisplay": {
