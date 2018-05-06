@@ -178,10 +178,9 @@ class MultipleSelectPage extends Component {
     return(
       <div style={{ paddingLeft: "20px", paddingRight: "20px" }}>
         <Row>
-          <Col span={12}>
+          <Col span={20}>
             <Row>
-              <div>
-                
+              <div>       
                   {this.state.cols_flag ? null : <Card card_title="settings"> <NumberCols cols_flag={this.state.cols_flag} setColumns={this.setColumns} changeCols={this.changeCols}/> </Card>}
                 <br />
                 
@@ -202,7 +201,7 @@ class MultipleSelectPage extends Component {
               <Button disabled={!this.state.cols_flag} onClick={this.addElement} type="default">Add Element</Button>
             </Row>
           </Col>
-          <Col span={12}><JsonRenderer json={json} /></Col>
+          <Col span={4}><JsonRenderer json={json} /></Col>
         </Row>
         <br />
       </div>
