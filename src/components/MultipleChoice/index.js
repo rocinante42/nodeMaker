@@ -23,6 +23,7 @@ class MultipleSelectRenderer extends Component {
                                     hasPreview
                                     hasInputOption
                                     index={cont}
+                                    input_size={400}
                                     card_title={"Setup"} 
                                     changeContent={this.props.changeContent}
                                     refreshState={this.props.refreshState} 
