@@ -200,7 +200,7 @@ class CardRenderer extends Component {
             }
           </Row>
           {this.props.hasFlag ? <TrueFalse changeFlag={this.changeFlag} flag={this.state.flag} /> : null}
-          {this.props.hasInputOption ? <InputOption inputOption={this.inputOption} input_size={this.props.input_size} /> : null}
+          {this.props.hasInputOption && !this.props.inputOptionDisabled ? <InputOption inputOption={this.inputOption} input_size={this.props.input_size} /> : null}
           {this.props.hasInputOption ? <Answer changeAnswer={this.changeAnswer}/> : null}
           {this.props.hasPreview ? <Row>
             <Divider />
@@ -242,7 +242,8 @@ CardRenderer.defaultProps = {
   refresh: false,
   flagFunction: function(){},
   inputOption: function(){},
-  changeAnswer: function(){}
+  changeAnswer: function(){},
+  inputOptionDisabled: false
 }
 
 export default CardRenderer;

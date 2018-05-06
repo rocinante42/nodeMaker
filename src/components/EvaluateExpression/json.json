@@ -1,0 +1,83 @@
+{
+  "5ae8e8867144b3617da2626b": {
+    "data": {
+      "value": [
+        [
+          "setup1",
+          "5"
+        ],
+        [
+          "setup2",
+          4
+        ],
+        [
+          "setup3",
+          2
+        ]
+      ]
+    },
+    "setup1": {
+      "display": "JaxGrid",
+      "grid_columns": 1,
+      "jaxLayout": [
+        {
+          "i": 0,
+          "x": 0,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "jaxDisplay": {
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "text{Evaluate }x+3 text{ when }x=2"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "setup2": {
+      "display": "JaxGrid",
+      "grid_columns": 1,
+      "jaxLayout": [
+        {
+          "i": 0,
+          "x": 0,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "jaxDisplay": {
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "text{Evaluate }x//4+1 text{ when }x=12"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "setup3": {
+      "display": "JaxGrid",
+      "grid_columns": 1,
+      "jaxLayout": [
+        {
+          "i": 0,
+          "x": 0,
+          "y": 1,
+          "h": 1,
+          "w": 1,
+          "jaxDisplay": {
+            "jaxContent": [
+              {
+                "type": "math",
+                "content": "text{Evaluate }12//3//2"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

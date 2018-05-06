@@ -10,6 +10,7 @@ import TrueFalse2Page from './components/views/TrueFalse2'
 import MultipleSelectPage from './components/views/MultipleSelectPage';
 import Test from './components/views/Test';
 import DefinitionPage from './components/views/DefinitionPage';
+import EvaluateExpressionPage from './components/views/EvaluateExpression';
 import MultipleChoice from './components/views/MultipleChoice'
 import './App.css';
 
@@ -52,6 +53,7 @@ class App extends Component {
               <Route path="/true_false_2" component={TrueFalse2Page} />
               <Route path="/multiple_select" component={MultipleSelectPage} />
               <Route path="/multiple_choice" component={MultipleChoice} />
+              <Route path="/evaluate_expression" component={EvaluateExpressionPage} />
             </div>
           </div>
         </Content>

@@ -51,6 +51,11 @@ class Home extends Component {
         </Link>
         <br />
         <br />
+        <Link to="/evaluate_expression">
+          <Button type="default">Evaluate Expression</Button>
+        </Link>
+        <br />
+        <br />
         <Link to="/test_component">
           <Button type="default">Test Card</Button>
         </Link>
